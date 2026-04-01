@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficos</title>
+</head>
+
+<body>
+    <canvas id="myChart" style="height: 20vh; width: 40vw;"></canvas>
+    <canvas id="myChart2" style="height: 20vh; width: 40vw;"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+        const ctx2 = document.getElementById('myChart2');
+
+        const labels = ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
+
+        const config = {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Temperatura',
+                        data: [30, 29, 28, 25, 22, 23],
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Umidade',
+                        data: [80, 82, 80, 85, 80, 83],
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const config2 = {
+            type: 'bar',
+            data: {
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+                datasets: [
+                    {
+                        label: 'Temperatura Média',
+                        data: [22, 24, 27, 23, 20, 18],
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Umidade Média',
+                        data: [90, 89, 93, 87, 88, 82],
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const myChart = new Chart(ctx, config);
+        const myChart2 = new Chart(ctx2, config2);
+    </script>
+</body>
+
+</html>
